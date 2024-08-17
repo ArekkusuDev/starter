@@ -78,6 +78,12 @@ return {
     end,
   },
 
+  -- HTTP REST-Client interface
+  {
+    "mistweaverco/kulala.nvim",
+    opts = {},
+  },
+
   -- overrides
   {
     "neovim/nvim-lspconfig",
