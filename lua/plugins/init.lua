@@ -6,14 +6,6 @@ return {
   },
 
   {
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-    opts = {
-      select = { backend = { "telescope" } },
-    },
-  },
-
-  {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     opts = {},
@@ -77,6 +69,20 @@ return {
   },
 
   {
+    "williamboman/mason.nvim",
+    dependencies = {
+      {
+        "stevearc/dressing.nvim",
+        opts = {
+          -- only use dressing for Mason filter, so disable input and keep select enabled
+          input = { enabled = false },
+          select = { backend = { "telescope" } },
+        },
+      },
+    },
+  },
+
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       {
@@ -104,6 +110,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = { "python", "java", "rust" },
+      indent = { disable = { "python" } },
     },
   },
 }
