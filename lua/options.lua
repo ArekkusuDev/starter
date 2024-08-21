@@ -7,3 +7,4 @@ o.backup = false
 o.writebackup = false
 o.relativenumber = true
 o.scrolloff = 8
+vim.opt.smartindent = false
