@@ -5,6 +5,14 @@ return {
     opts = require "configs.conform",
   },
 
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = {
+      select = { backend = { "telescope" } },
+    },
+  },
+
   -- debugger
   -- NOTE: just load with the filetypes where a debugger is configured
   {
@@ -82,7 +90,6 @@ return {
     },
     config = function(_, opts)
       table.insert(opts.sources, 1, { name = "copilot" })
-      opts.experimental = { ghost_text = true }
       require("cmp").setup(opts)
     end,
   },
@@ -106,10 +113,5 @@ return {
         "python",
       },
     },
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = { extensions_list = { "projects" } },
   },
 }
