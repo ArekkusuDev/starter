@@ -12,7 +12,7 @@ M.base46 = {
 M.ui = {
   nvdash = { load_on_startup = true },
   cmp = { style = "atom" },
-  statusline = { theme = "vscode_colored" },
+  statusline = { theme = "minimal" },
 }
 
 return M
