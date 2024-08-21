@@ -16,9 +16,9 @@ local lazy_config = require "configs.lazy"
 -- load plugins
 require("lazy").setup({
   {
-    "NvChad/NvChad",
+    "ArekkusuDev/NvChad",
     lazy = false,
-    branch = "v2.5",
+    branch = "arekkusu",
     import = "nvchad.plugins",
   },
 
