@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -53,37 +53,6 @@ return {
     ft = "java",
   },
 
-  -- copilot
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    opts = {
-      panel = { enabled = false },
-      suggestion = { enabled = false },
-    },
-  },
-
-  {
-    "TheLeoP/project.nvim",
-    event = "LspAttach",
-    -- project.nvim must be configured using opts variable
-    opts = {
-      detection_methods = { "lsp" },
-      exclude_dirs = { "~/.cargo", "~" },
-      silent_chdir = false,
-    },
-    config = function(_, opts)
-      require("project_nvim").setup(opts)
-    end,
-  },
-
-  -- HTTP REST-Client interface
-  {
-    "mistweaverco/kulala.nvim",
-    opts = {},
-  },
-
   -- overrides
   {
     "neovim/nvim-lspconfig",
@@ -95,7 +64,20 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      { "zbirenbaum/copilot-cmp", opts = {} },
+      {
+        "zbirenbaum/copilot-cmp",
+        dependencies = {
+          -- copilot
+          {
+            "zbirenbaum/copilot.lua",
+            opts = {
+              panel = { enabled = false },
+              suggestion = { enabled = false },
+            },
+          },
+        },
+        opts = {},
+      },
     },
     opts = require "configs.cmp",
   },
