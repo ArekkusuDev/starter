@@ -13,6 +13,12 @@ return {
     },
   },
 
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- debugger
   -- NOTE: just load with the filetypes where a debugger is configured
   {
@@ -66,7 +72,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "configs.lsp"
+      require "configs.lspconfig"
     end,
   },
 
@@ -97,21 +103,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "luadoc",
-        "vimdoc",
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "tsx",
-        "rust",
-        "bash",
-        "java",
-        "python",
-      },
+      ensure_installed = { "python", "java", "rust" },
     },
   },
 }
