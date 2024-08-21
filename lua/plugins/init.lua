@@ -44,6 +44,7 @@ return {
       "nvim-neotest/nvim-nio",
     },
     config = function()
+      ---@diagnostic disable-next-line: different-requires
       require "configs.dap"
     end,
   },
@@ -79,7 +80,11 @@ return {
         opts = {},
       },
     },
-    opts = require "configs.cmp",
+    config = function(_, opts)
+      table.insert(opts.sources, 1, { name = "copilot" })
+      opts.experimental = { ghost_text = true }
+      require("cmp").setup(opts)
+    end,
   },
 
   {
